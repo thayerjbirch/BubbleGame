@@ -8,16 +8,39 @@
 
 #import "AppDelegate.h"
 
+
 @interface AppDelegate ()
+
+
 
 @end
 
 @implementation AppDelegate
-            
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // Implementation for background audio
+    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle]
+                                         pathForResource:@"Corridors"
+                                         ofType:@".mp3"]];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    self.player.numberOfLoops = -1;
+    [self.player play];
+    
+    
     return YES;
+}
+
+- (NSString*)archivePath
+{
+    NSArray *documentDirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    // It's the only one
+    NSString *docDir = documentDirs[0];
+    
+    return [docDir stringByAppendingPathComponent:@"highScores"];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -41,5 +64,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+            
+
 
 @end

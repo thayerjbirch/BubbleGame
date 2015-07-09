@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B3A3FE81B12F376007B271B /* CollisionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A3FE71B12F376007B271B /* CollisionManager.m */; };
+		A2A424B81A1DA2BD009C8ACE /* GameExit.m in Sources */ = {isa = PBXBuildFile; fileRef = A2A424B71A1DA2BD009C8ACE /* GameExit.m */; };
+		CF05781D1A37C09A00D274D2 /* Corridors.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CF05781C1A37C09A00D274D2 /* Corridors.mp3 */; };
 		CF69D56D1A1C2AEF0067F374 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF69D56C1A1C2AEF0067F374 /* main.m */; };
 		CF69D5701A1C2AEF0067F374 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF69D56F1A1C2AEF0067F374 /* AppDelegate.m */; };
 		CF69D5731A1C2AEF0067F374 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = CF69D5721A1C2AEF0067F374 /* GameScene.m */; };
@@ -15,6 +18,9 @@
 		CF69D57B1A1C2AEF0067F374 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF69D5791A1C2AEF0067F374 /* Main.storyboard */; };
 		CF69D57D1A1C2AEF0067F374 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF69D57C1A1C2AEF0067F374 /* Images.xcassets */; };
 		CF69D5891A1C2AEF0067F374 /* BubbleGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF69D5881A1C2AEF0067F374 /* BubbleGameTests.m */; };
+		CF76E8E91AFD5B8B00A10474 /* ParallaxBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = CF76E8E81AFD5B8B00A10474 /* ParallaxBackground.m */; };
+		CFFDF6171A37C4BE00EAAD85 /* enemyNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFDF6141A37C4BE00EAAD85 /* enemyNode.m */; };
+		CFFDF6181A37C4BE00EAAD85 /* rngNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFDF6161A37C4BE00EAAD85 /* rngNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,13 +34,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B3A3FE61B12F376007B271B /* CollisionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionManager.h; sourceTree = "<group>"; };
+		9B3A3FE71B12F376007B271B /* CollisionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionManager.m; sourceTree = "<group>"; };
+		A2A424B61A1DA2BD009C8ACE /* GameExit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameExit.h; sourceTree = "<group>"; };
+		A2A424B71A1DA2BD009C8ACE /* GameExit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameExit.m; sourceTree = "<group>"; };
+		CF05781C1A37C09A00D274D2 /* Corridors.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Corridors.mp3; sourceTree = "<group>"; };
 		CF69D5671A1C2AEF0067F374 /* BubbleGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BubbleGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF69D56B1A1C2AEF0067F374 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF69D56C1A1C2AEF0067F374 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CF69D56E1A1C2AEF0067F374 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CF69D56F1A1C2AEF0067F374 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CF69D5711A1C2AEF0067F374 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
-		CF69D5721A1C2AEF0067F374 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		CF69D5721A1C2AEF0067F374 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GameScene.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CF69D5741A1C2AEF0067F374 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		CF69D5761A1C2AEF0067F374 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		CF69D5771A1C2AEF0067F374 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
@@ -43,6 +54,12 @@
 		CF69D5821A1C2AEF0067F374 /* BubbleGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BubbleGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF69D5871A1C2AEF0067F374 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF69D5881A1C2AEF0067F374 /* BubbleGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BubbleGameTests.m; sourceTree = "<group>"; };
+		CF76E8E71AFD5B8B00A10474 /* ParallaxBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxBackground.h; sourceTree = "<group>"; };
+		CF76E8E81AFD5B8B00A10474 /* ParallaxBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallaxBackground.m; sourceTree = "<group>"; };
+		CFFDF6131A37C4BE00EAAD85 /* enemyNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = enemyNode.h; sourceTree = "<group>"; };
+		CFFDF6141A37C4BE00EAAD85 /* enemyNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = enemyNode.m; sourceTree = "<group>"; };
+		CFFDF6151A37C4BE00EAAD85 /* rngNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rngNode.h; sourceTree = "<group>"; };
+		CFFDF6161A37C4BE00EAAD85 /* rngNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rngNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +103,21 @@
 			children = (
 				CF69D56E1A1C2AEF0067F374 /* AppDelegate.h */,
 				CF69D56F1A1C2AEF0067F374 /* AppDelegate.m */,
-				CF69D5711A1C2AEF0067F374 /* GameScene.h */,
-				CF69D5721A1C2AEF0067F374 /* GameScene.m */,
-				CF69D5741A1C2AEF0067F374 /* GameScene.sks */,
 				CF69D5761A1C2AEF0067F374 /* GameViewController.h */,
 				CF69D5771A1C2AEF0067F374 /* GameViewController.m */,
+				CF69D5711A1C2AEF0067F374 /* GameScene.h */,
+				CF69D5721A1C2AEF0067F374 /* GameScene.m */,
+				CF76E8E71AFD5B8B00A10474 /* ParallaxBackground.h */,
+				CF76E8E81AFD5B8B00A10474 /* ParallaxBackground.m */,
+				9B3A3FE61B12F376007B271B /* CollisionManager.h */,
+				9B3A3FE71B12F376007B271B /* CollisionManager.m */,
+				CFFDF6131A37C4BE00EAAD85 /* enemyNode.h */,
+				CFFDF6141A37C4BE00EAAD85 /* enemyNode.m */,
+				CFFDF6151A37C4BE00EAAD85 /* rngNode.h */,
+				CFFDF6161A37C4BE00EAAD85 /* rngNode.m */,
+				CF69D5741A1C2AEF0067F374 /* GameScene.sks */,
+				A2A424B61A1DA2BD009C8ACE /* GameExit.h */,
+				A2A424B71A1DA2BD009C8ACE /* GameExit.m */,
 				CF69D5791A1C2AEF0067F374 /* Main.storyboard */,
 				CF69D57C1A1C2AEF0067F374 /* Images.xcassets */,
 				CF69D56A1A1C2AEF0067F374 /* Supporting Files */,
@@ -102,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				CF69D56B1A1C2AEF0067F374 /* Info.plist */,
+				CF05781C1A37C09A00D274D2 /* Corridors.mp3 */,
 				CF69D56C1A1C2AEF0067F374 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -205,6 +233,7 @@
 			files = (
 				CF69D57D1A1C2AEF0067F374 /* Images.xcassets in Resources */,
 				CF69D5751A1C2AEF0067F374 /* GameScene.sks in Resources */,
+				CF05781D1A37C09A00D274D2 /* Corridors.mp3 in Resources */,
 				CF69D57B1A1C2AEF0067F374 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +253,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF69D5781A1C2AEF0067F374 /* GameViewController.m in Sources */,
+				A2A424B81A1DA2BD009C8ACE /* GameExit.m in Sources */,
+				CFFDF6171A37C4BE00EAAD85 /* enemyNode.m in Sources */,
+				9B3A3FE81B12F376007B271B /* CollisionManager.m in Sources */,
+				CFFDF6181A37C4BE00EAAD85 /* rngNode.m in Sources */,
+				CF76E8E91AFD5B8B00A10474 /* ParallaxBackground.m in Sources */,
 				CF69D5701A1C2AEF0067F374 /* AppDelegate.m in Sources */,
 				CF69D5731A1C2AEF0067F374 /* GameScene.m in Sources */,
 				CF69D56D1A1C2AEF0067F374 /* main.m in Sources */,
@@ -411,6 +445,7 @@
 				CF69D58E1A1C2AEF0067F374 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF69D58F1A1C2AEF0067F374 /* Build configuration list for PBXNativeTarget "BubbleGameTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +454,7 @@
 				CF69D5911A1C2AEF0067F374 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

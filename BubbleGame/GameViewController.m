@@ -8,6 +8,8 @@
 
 #import "GameViewController.h"
 #import "GameScene.h"
+#import "AppDelegate.h"
+#import <AVFoundation/AVFoundation.h>
 
 @implementation SKScene (Unarchive)
 
@@ -33,21 +35,35 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    AppDelegate *ourDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    
+    
+    NSMutableArray *tempArray = [NSKeyedUnarchiver unarchiveObjectWithFile:[ourDelegate archivePath]];
+    if(tempArray){
+        ourDelegate.highScores = tempArray;
+    }
+    else {
+        ourDelegate.highScores = [[NSMutableArray alloc] init];
+    }
+    
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
+    //skView.showsNodeCount = YES;
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = YES;
     
     // Create and configure the scene.
-    GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
+    SKScene * scene = [GameScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
     [skView presentScene:scene];
+    
 }
+
+
 
 - (BOOL)shouldAutorotate
 {

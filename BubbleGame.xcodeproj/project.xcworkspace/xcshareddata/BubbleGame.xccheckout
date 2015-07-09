@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>713DCFF5-E7FB-4A4B-AB8D-6F7A4A5EC3E8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BubbleGame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1D95BE0C1CB21E438DF7ECEB095DD2BFB5828B25</key>
+		<string>https://github.com/thayerjbirch/BubbleGame.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BubbleGame.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1D95BE0C1CB21E438DF7ECEB095DD2BFB5828B25</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/thayerjbirch/BubbleGame.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1D95BE0C1CB21E438DF7ECEB095DD2BFB5828B25</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1D95BE0C1CB21E438DF7ECEB095DD2BFB5828B25</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BubbleGame</string>
+		</dict>
+	</array>
+</dict>
+</plist>
