@@ -129,7 +129,7 @@ const int GOLD = 2;
         super.enSprite = [SKSpriteNode spriteNodeWithImageNamed:@"purple"];
     super.enSprite.size = CGSizeMake(BLOCK_SIZE, BLOCK_SIZE);
     super.pointValue = pointValueConstant;
-    super.enSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:super.enSprite.frame.size];
+    //super.enSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:super.enSprite.frame.size];
     super.enSprite.zPosition = 1;
     self.reuseIdentifier = @"basic";
     return self;
@@ -206,8 +206,9 @@ const int GOLD = 2;
     super.enSprite = [SKSpriteNode spriteNodeWithImageNamed:@"gold"];
     super.enSprite.size = CGSizeMake(BLOCK_SIZE, BLOCK_SIZE);
     super.pointValue = 5 * pointValueConstant;
-    super.enSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:super.enSprite.frame.size];
+    //super.enSprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:super.enSprite.frame.size];
     super.enSprite.zPosition = 1;
+    self.reuseIdentifier = @"gold";
     return self;
 }
 

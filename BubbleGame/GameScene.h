@@ -11,7 +11,9 @@
 #import "AppDelegate.h"
 #import "enemyNode.h"
 #import "ParallaxBackground.h"
+#import "CollisionManager.h"
 @class ParallaxBackground;
+@class CollisionManager;
 
 static const float BLOCK_SIZE = 19.0;
 static const int MIN_SPAWN_DELAY = 5;
@@ -61,6 +63,7 @@ NSMutableArray* enemyNodes;
 @property (nonatomic) SKAction* fadeIn;
 @property (nonatomic) SKAction* fadeOut;
 @property (nonatomic) ParallaxBackground* ourBackground;
+@property (nonatomic) CollisionManager* ourColManager;
 
 -(void)addHighScore;
 -(void)fadeInMenu;

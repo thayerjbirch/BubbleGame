@@ -92,6 +92,8 @@ NSMutableArray *nodesContained;
 
 @implementation CollisionManager
 NSArray* moves;
+CGFloat width;
+CGFloat height;
 
 -(id)initInFrame:(CGRect)frame{
     _containers = [[NSMutableArray alloc] init];
@@ -111,17 +113,19 @@ NSArray* moves;
     CGFloat maxX = 0;
     CGFloat maxY = 0;
     
-    CGFloat width = frame.size.width / 3;
-    CGFloat height = frame.size.height / 3;
+    width = frame.size.width / 3;
+    height = frame.size.height / 3;
+    int count = 0;
     
     for(int y = 1; y <= 3; y++){
         maxY = y * height;
         for(int x = 1; x <= 3; x++){
             maxX = x * width;
-            [_containers insertObject:[[CollisionContainer alloc] initWithRect:CGRectMake(minX, minY, maxX, maxY)] atIndex:(x+y-2)];//index -2 because we started both loops at 1
+            [_containers insertObject:[[CollisionContainer alloc] initWithRect:CGRectMake(minX, minY, maxX, maxY)] atIndex:count];
             minX = maxX;
         }
         minY = maxY;
+        count++;
     }
     
     [self setAdjacency];
@@ -195,13 +199,60 @@ NSArray* moves;
     }
 }
 
-+(void)setStaticDirection:(NSInteger*)direction{
+-(void)setStaticDirection:(NSInteger*)direction{
     dirState = direction;
-    [self setCurrentAction:*dirState];
+    [self setAction:*dirState];
 }
 
-+(void)setCurrentAction:(NSInteger)direction{
+-(void)setAction:(NSInteger)direction{
     currentAction = [moves objectAtIndex:direction];
+}
+
+-(void)addNewEnemy:(EnemyNode*)newNode{
+    CGFloat xPos = [[newNode enSprite] position].x;
+    CGFloat yPos = [[newNode enSprite] position].y;
+    
+    if(xPos > width){
+        if(xPos > 2 * width){
+            if(yPos > height){
+                if(yPos > 2 * height){
+                    [[_containers objectAtIndex:8] addNode:newNode];
+                }
+                else{
+                    [[_containers objectAtIndex:5] addNode:newNode];
+                }
+            }
+            else{
+                [[_containers objectAtIndex:2] addNode:newNode];
+            }
+        }
+        else{
+            if(yPos > height){
+                if(yPos > 2 * height){
+                    [[_containers objectAtIndex:7] addNode:newNode];
+                }
+                else{
+                    [[_containers objectAtIndex:4] addNode:newNode];
+                }
+            }
+            else{
+                [[_containers objectAtIndex:1] addNode:newNode];
+            }
+        }
+    }
+    else{
+        if(yPos > height){
+            if(yPos > 2 * height){
+                [[_containers objectAtIndex:6] addNode:newNode];
+            }
+            else{
+                [[_containers objectAtIndex:3] addNode:newNode];
+            }
+        }
+        else{
+            [[_containers objectAtIndex:0] addNode:newNode];
+        }
+    }
 }
 @end
 

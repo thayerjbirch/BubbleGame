@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "enemyNode.h"
 #import <SpriteKit/SpriteKit.h>
-
+@class EnemyNode;
 @class CollisionManager;
 
 static const int NW = 0;
@@ -35,7 +35,7 @@ static NSInteger* dirState;
 
 -(void)update;
 -(id)initWithRect:(CGRect)location;
--(void) addNode:(EnemyNode*)targetNode;
+-(void)addNode:(EnemyNode*)targetNode;
 
 @end
 
@@ -44,5 +44,11 @@ static NSInteger* dirState;
 @property NSMutableArray* containers;
 @property NSDictionary* reuseNodes;
 @property SKAction* currentAction;
+
+-(id)initInFrame:(CGRect)frame;
+-(void)setStaticDirection:(NSInteger*)direction;
+-(void)setAction:(NSInteger)direction;
+-(void)update;
+-(void)addNewEnemy:(EnemyNode*)newNode;
 
 @end

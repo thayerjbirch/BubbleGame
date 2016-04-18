@@ -26,7 +26,9 @@
     
     [EnemyNode setStaticDirection:&(_directionState)];
     [EnemyNode setCallback:self];
-
+    
+    _ourColManager = [[CollisionManager alloc] initInFrame:self.frame];
+    [_ourColManager setStaticDirection:&(_directionState)];
 
     _rngCounter = 0;
     _seededRNG = [NSMutableArray arrayWithCapacity:100];
@@ -160,6 +162,7 @@
                 [enemyNodes removeObjectAtIndex:i];
             }
         }
+        [_ourColManager update];
     }
     else{
         for(int i = 0; i < [enemyNodes count]; i++){
@@ -177,7 +180,6 @@
 -(void) handleSwipeRight:( UISwipeGestureRecognizer *) recognizer {
     if(!_gameOver && _directionState!= RIGHT_STATE){
         _action = [SKAction moveByX:100.0 y:0.0 duration:1.0];
-        _directionState = RIGHT_STATE;
         for(int i = 0; i < [enemyNodes count]; i++){
             EnemyNode *node = [enemyNodes objectAtIndex:i];
             if(node.respondsToSwipe){
@@ -185,6 +187,8 @@
                 [[node enSprite] runAction:[SKAction repeatActionForever:_action] withKey:@"move"];
             }
         }
+        _directionState = RIGHT_STATE;
+        [_ourColManager setAction:_directionState];
         [_player runAction:[SKAction rotateToAngle:M_PI/2 duration:ROTATION_DURATION shortestUnitArc:true]];
         [_ourBackground setXSpeed:BACKGROUND_SPEED andYSpeed:0];
     }
@@ -193,7 +197,6 @@
 -(void) handleSwipeLeft:( UISwipeGestureRecognizer *) recognizer {
     if(!_gameOver && _directionState!= LEFT_STATE){
         _action = [SKAction moveByX:-100.0 y:0.0 duration:1.0];
-        _directionState = LEFT_STATE;
         for(int i = 0; i < [enemyNodes count]; i++){
             EnemyNode *node = [enemyNodes objectAtIndex:i];
             if(node.respondsToSwipe){
@@ -201,6 +204,8 @@
                 [[node enSprite] runAction:[SKAction repeatActionForever:_action] withKey:@"move"];
             }
         }
+        _directionState = LEFT_STATE;
+        [_ourColManager setAction:_directionState];
         [_player runAction:[SKAction rotateToAngle:-M_PI/2 duration:ROTATION_DURATION shortestUnitArc:true]];
         [_ourBackground setXSpeed:-BACKGROUND_SPEED andYSpeed:0];
     }
@@ -209,7 +214,6 @@
 -(void) handleSwipeUp:( UISwipeGestureRecognizer *) recognizer {
     if(!_gameOver && _directionState!= UP_STATE){
         _action = [SKAction moveByX:0.0 y:100.0 duration:1.0];
-        _directionState = UP_STATE;
         for(int i = 0; i < [enemyNodes count]; i++){
             EnemyNode *node = [enemyNodes objectAtIndex:i];
             if(node.respondsToSwipe){
@@ -217,15 +221,16 @@
                 [[node enSprite] runAction:[SKAction repeatActionForever:_action] withKey:@"move"];
             }
         }
+        _directionState = UP_STATE;
+        [_ourColManager setAction:_directionState];
+        [_player runAction:[SKAction rotateToAngle:-M_PI duration:ROTATION_DURATION shortestUnitArc:true]];
+        [_ourBackground setXSpeed:0 andYSpeed:BACKGROUND_SPEED];
     }
-    [_player runAction:[SKAction rotateToAngle:-M_PI duration:ROTATION_DURATION shortestUnitArc:true]];
-    [_ourBackground setXSpeed:0 andYSpeed:BACKGROUND_SPEED];
 }
 
 -(void) handleSwipeDown:( UISwipeGestureRecognizer *) recognizer {
     if(!_gameOver && _directionState!= DOWN_STATE){
         _action = [SKAction moveByX:0.0 y:-100.0 duration:1.0];
-        _directionState = DOWN_STATE;
         for(int i = 0; i < [enemyNodes count]; i++){
             EnemyNode *node = [enemyNodes objectAtIndex:i];
             if(node.respondsToSwipe){
@@ -233,6 +238,8 @@
                 [[node enSprite] runAction:[SKAction repeatActionForever:_action] withKey:@"move"];
             }
         }
+        _directionState = DOWN_STATE;
+        [_ourColManager setAction:_directionState];
         [_player runAction:[SKAction rotateToAngle:2*M_PI duration:ROTATION_DURATION shortestUnitArc:true]];
         [_ourBackground setXSpeed:0 andYSpeed:-BACKGROUND_SPEED];
     }
@@ -244,7 +251,8 @@
     newEnemy = [[EnemyNode alloc] init:BASIC];
     [[newEnemy enSprite] runAction:[SKAction repeatActionForever:_action] withKey:@"move"];
     [self addChild:[newEnemy enSprite]];
-    [enemyNodes addObject:newEnemy];
+    [enemyNodes addObject:newEnemy];    
+    [_ourColManager addNewEnemy:newEnemy];
 }
 
 -(void) spawnNewGold{
@@ -254,13 +262,13 @@
     [[newEnemy enSprite] runAction:[SKAction repeatActionForever:_action] withKey:@"move"];
     [self addChild:[newEnemy enSprite]];
     [enemyNodes addObject:newEnemy];
+    [_ourColManager addNewEnemy:newEnemy];
 }
 
 -(void) spawnNewJugg:(NSNumber*)direction{
     EnemyNode *newEnemy;
     _frameCounter = 0;
     newEnemy = [[EnemyNode alloc] init:JUGG andArg:direction];
-    [[newEnemy enSprite] runAction:[SKAction repeatActionForever:_action] withKey:@"move"];
     int x = [direction intValue];
     
     switch(x){
@@ -280,6 +288,7 @@
     
     [self addChild:[newEnemy enSprite]];
     [enemyNodes addObject:newEnemy];
+    [_ourColManager addNewEnemy:newEnemy];
 }
 
 -(void)addHighScore {
@@ -293,7 +302,7 @@
         [[ourDelegate highScores] removeObjectAtIndex:10];
     }
     [NSKeyedArchiver archiveRootObject:ourDelegate.highScores toFile:[ourDelegate archivePath]];
-    
+    [self updateScoreMenu];
 }
 
 -(void)createGestureListeners:(SKView *)view {
